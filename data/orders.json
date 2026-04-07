@@ -1,0 +1,364 @@
+[
+  {
+    "createdAt": "2026-03-11T14:18:27.340Z",
+    "status": "confirmed",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 125,
+    "total": 145,
+    "customer": {},
+    "items": [
+      {
+        "productId": 4,
+        "name": "LunchBox Isotherme - Motifs Animaux",
+        "price": 125,
+        "quantity": 1
+      }
+    ],
+    "id": 1
+  },
+  {
+    "createdAt": "2026-03-11T14:25:35.896Z",
+    "status": "cancelled",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 294,
+    "total": 314,
+    "customer": {
+      "firstName": "imane"
+    },
+    "items": [
+      {
+        "productId": 12,
+        "name": "Crème solaire SPF50+",
+        "price": 169,
+        "quantity": 1
+      },
+      {
+        "productId": 4,
+        "name": "LunchBox Isotherme - Motifs Animaux",
+        "price": 125,
+        "quantity": 1
+      }
+    ],
+    "id": 2
+  },
+  {
+    "createdAt": "2026-03-11T14:40:08.133Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 423,
+    "total": 443,
+    "customer": {
+      "email": "test@gmail.com",
+      "firstName": "test",
+      "lastName": "test",
+      "address": "test@gmail.com",
+      "city": "casablanca",
+      "phone": "06683422345"
+    },
+    "items": [
+      {
+        "productId": 6,
+        "name": "Crème hydratante bébé - Peaux sensibles",
+        "price": 149,
+        "quantity": 2
+      },
+      {
+        "productId": 4,
+        "name": "LunchBox Isotherme - Motifs Animaux",
+        "price": 125,
+        "quantity": 1
+      }
+    ],
+    "id": 3
+  },
+  {
+    "createdAt": "2026-03-12T10:36:30.472Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 601,
+    "total": 621,
+    "customer": {
+      "email": "testtt@gmail.vom",
+      "firstName": "testtt",
+      "lastName": "testtt",
+      "address": "testtt@gmail.vom",
+      "city": "testtt",
+      "phone": "testtt"
+    },
+    "items": [
+      {
+        "productId": 7,
+        "name": "Gel lavant doux - Corps & cheveux",
+        "price": 119,
+        "quantity": 4
+      },
+      {
+        "productId": 4,
+        "name": "LunchBox Isotherme - Motifs Animaux",
+        "price": 125,
+        "quantity": 1
+      }
+    ],
+    "id": 4
+  },
+  {
+    "createdAt": "2026-03-16T14:41:06.868Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 89,
+    "total": 109,
+    "customer": {
+      "email": "imn@gmail.com",
+      "firstName": "imn",
+      "lastName": "imn",
+      "address": "imn",
+      "city": "casa",
+      "phone": "00000000000"
+    },
+    "items": [
+      {
+        "productId": 5,
+        "name": "Brosse à dents électrique Bébé",
+        "price": 89,
+        "quantity": 1
+      }
+    ],
+    "id": 5
+  },
+  {
+    "createdAt": "2026-03-16T14:47:59.670Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "hors-casablanca",
+    "shippingCost": 40,
+    "subtotal": 238,
+    "total": 278,
+    "customer": {
+      "email": "imaneerrj@gmail.com",
+      "firstName": "Imane",
+      "lastName": "Imane",
+      "address": "Imane",
+      "city": "Imane",
+      "phone": "0000000000000"
+    },
+    "items": [
+      {
+        "productId": 7,
+        "name": "Gel lavant doux - Corps & cheveux",
+        "price": 119,
+        "quantity": 2
+      }
+    ],
+    "id": 6
+  },
+  {
+    "createdAt": "2026-03-25T09:29:09.459Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 119,
+    "total": 139,
+    "customer": {
+      "email": "imane@GMAIL.COM",
+      "firstName": "ss",
+      "lastName": "ss",
+      "address": "ss",
+      "city": "ss",
+      "phone": "07533333"
+    },
+    "items": [
+      {
+        "productId": 7,
+        "name": "Gel lavant doux - Corps & cheveux",
+        "price": 119,
+        "quantity": 1
+      }
+    ],
+    "id": 7
+  },
+  {
+    "createdAt": "2026-04-06T10:33:27.558Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 676,
+    "total": 696,
+    "customer": {
+      "email": "IMANE@GMAIL.COM",
+      "firstName": "IMANE",
+      "lastName": "EE",
+      "address": "LOT",
+      "city": "CASSA",
+      "phone": "0668349565"
+    },
+    "items": [
+      {
+        "productId": 12,
+        "name": "Crème solaire SPF50+",
+        "price": 169,
+        "quantity": 4
+      }
+    ],
+    "id": 8
+  },
+  {
+    "createdAt": "2026-04-07T09:24:49.449Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 358,
+    "total": 378,
+    "customer": {
+      "email": "imaneerrj@gmail.com",
+      "firstName": "IMANE",
+      "lastName": "ERRAJRAJI",
+      "address": "LOT ANNASR BLOC 23 OULAD SALEH BOUSKOURA, CASABLANCA",
+      "postalCode": "20190",
+      "city": "CASABLANCA",
+      "phone": "0668349565"
+    },
+    "items": [
+      {
+        "productId": 11,
+        "name": "Sac à dos maternelle",
+        "price": 179,
+        "quantity": 2
+      }
+    ],
+    "id": 9
+  },
+  {
+    "createdAt": "2026-04-07T10:41:12.012Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 119,
+    "total": 139,
+    "customer": {
+      "email": "imaneerrj@gmail.com",
+      "firstName": "IMANE",
+      "lastName": "ERRAJRAJI",
+      "address": "LOT ANNASR BLOC 23 OULAD SALEH BOUSKOURA, CASABLANCA",
+      "postalCode": "20190",
+      "city": "CASABLANCA",
+      "phone": "0668349565"
+    },
+    "items": [
+      {
+        "productId": 7,
+        "name": "Gel lavant doux - Corps & cheveux",
+        "price": 119,
+        "quantity": 1
+      }
+    ],
+    "id": 10
+  },
+  {
+    "createdAt": "2026-04-07T19:23:57.190Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "hors-casablanca",
+    "shippingCost": 40,
+    "subtotal": 149,
+    "total": 189,
+    "customer": {
+      "email": "imaneerrj@gmail.com",
+      "firstName": "IMANE",
+      "lastName": "ERRAJRAJI",
+      "address": "LOT ANNASR BLOC 23 OULAD SALEH BOUSKOURA, CASABLANCA",
+      "postalCode": "20190",
+      "city": "CASABLANCA",
+      "phone": "0668349565"
+    },
+    "items": [
+      {
+        "productId": 6,
+        "name": "Crème hydratante bébé - Peaux sensibles",
+        "price": 149,
+        "quantity": 1
+      }
+    ],
+    "id": 11
+  },
+  {
+    "createdAt": "2026-04-07T19:24:41.204Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "cod",
+    "shippingMethod": "hors-casablanca",
+    "shippingCost": 40,
+    "subtotal": 169,
+    "total": 209,
+    "customer": {
+      "email": "imaneerrj@gmail.com",
+      "firstName": "IMANE",
+      "lastName": "ERRAJRAJI",
+      "address": "LOT ANNASR BLOC 23 OULAD SALEH BOUSKOURA, CASABLANCA",
+      "postalCode": "20190",
+      "city": "CASABLANCA",
+      "phone": "0668349565"
+    },
+    "items": [
+      {
+        "productId": 12,
+        "name": "Crème solaire SPF50+",
+        "price": 169,
+        "quantity": 1
+      }
+    ],
+    "id": 12
+  },
+  {
+    "createdAt": "2026-04-07T22:04:40.621Z",
+    "status": "pending",
+    "currency": "MAD",
+    "paymentMethod": "card",
+    "shippingMethod": "casablanca",
+    "shippingCost": 20,
+    "subtotal": 89,
+    "total": 109,
+    "customer": {
+      "email": "imaneerrj@gmail.com",
+      "firstName": "IMANE",
+      "lastName": "ERRAJRAJI",
+      "address": "LOT ANNASR BLOC 23 OULAD SALEH BOUSKOURA, CASABLANCA",
+      "postalCode": "20190",
+      "city": "CASABLANCA",
+      "phone": "0668349565"
+    },
+    "items": [
+      {
+        "productId": 5,
+        "name": "Brosse à dents électrique Bébé",
+        "price": 89,
+        "quantity": 1
+      }
+    ],
+    "id": 13
+  }
+]

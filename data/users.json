@@ -1,0 +1,30 @@
+[
+  {
+    "createdAt": "2026-03-16T14:08:32.661Z",
+    "email": "imane_test_auth_1@gmail.com",
+    "passwordHash": "eyJhbGdvIjoic2NyeXB0Iiwic2FsdEJhc2U2NCI6IkZWcStsYm4vVDVKT0FEdHVvZkwwcUE9PSIsImhhc2hCYXNlNjQiOiJUSk91c1hUcTdyVmNYZHRFWGFNQ0NOaGROVU9veW9LU0RCQm1WZjdCNGNlM2RFVWppRlpyVkxic0JjK0NuWS9kZXRya0lyMVEwMFlCV1M5WVloMk9Tdz09In0=",
+    "firstName": "Imane",
+    "lastName": "Test",
+    "id": 1
+  },
+  {
+    "createdAt": "2026-04-06T11:09:59.151Z",
+    "email": "imaneerrj@gmail.com",
+    "passwordHash": "eyJhbGdvIjoic2NyeXB0Iiwic2FsdEJhc2U2NCI6IkgzSWsrbjVtS1U5YW9iaXJZVm1obGc9PSIsImhhc2hCYXNlNjQiOiJRNGk0N2tqWTlUSnhoZjZUM3o3eTZ2ZTJPSHlHY3Y3WG1xWlgwdTh0Y1BwYnJxTDBRYjJTSFMyc1ByS3FoMWVJYmVSZmk3QmxJaGpUTWpFQkJob2RlZz09In0=",
+    "firstName": "imane",
+    "lastName": "imane",
+    "id": 2,
+    "resetToken": "9395e94a2068afd48ede152fb37f3c817ad8d17c39e44db68193f57535c00967",
+    "resetTokenExpires": "2026-04-07T23:21:20.674Z"
+  },
+  {
+    "createdAt": "2026-04-06T12:13:01.151Z",
+    "email": "errajraji.imanee@gmail.com",
+    "passwordHash": "",
+    "firstName": "Imane",
+    "lastName": "Errajraji",
+    "id": 3,
+    "resetToken": "bb6435e259ee1377e4596d726ad2c76d911b26338e006708610a462b3fef0d7d",
+    "resetTokenExpires": "2026-04-07T11:13:16.770Z"
+  }
+]
