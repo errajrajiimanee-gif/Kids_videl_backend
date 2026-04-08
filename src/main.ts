@@ -26,16 +26,19 @@ async function bootstrap() {
       const allowedOrigins = [
         'http://localhost:5173',
         'http://127.0.0.1:5173',
+        'https://kids-videl.vercel.app',
         process.env.ADMIN_DASHBOARD_URL,
       ].filter(Boolean);
       
-      if (allowedOrigins.some(o => origin.startsWith(o))) {
+      const isAllowed = allowedOrigins.some(o => origin.startsWith(o));
+      if (isAllowed) {
         return callback(null, true);
       }
-      return callback(new Error('Not allowed by CORS'), false);
+      return callback(null, false);
     },
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
+    allowedHeaders: 'Content-Type,Accept,Authorization',
   });
 
   const port = process.env.PORT || 3000;
