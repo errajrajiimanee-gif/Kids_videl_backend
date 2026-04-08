@@ -21,24 +21,12 @@ async function bootstrap() {
   app.use(urlencoded({ extended: true, limit: '10mb' }));
 
   app.enableCors({
-    origin: (origin, callback) => {
-      if (!origin) return callback(null, true);
-      const allowedOrigins = [
-        'http://localhost:5173',
-        'http://127.0.0.1:5173',
-        'https://kids-videl.vercel.app',
-        process.env.ADMIN_DASHBOARD_URL,
-      ].filter(Boolean);
-      
-      const isAllowed = allowedOrigins.some(o => origin.startsWith(o));
-      if (isAllowed) {
-        return callback(null, true);
-      }
-      return callback(null, false);
-    },
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    origin: true, // Allow all origins temporarily for troubleshooting
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
-    allowedHeaders: 'Content-Type,Accept,Authorization',
+    allowedHeaders: 'Content-Type,Accept,Authorization,X-Requested-With',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
   });
 
   const port = process.env.PORT || 3000;
