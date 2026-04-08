@@ -21,10 +21,10 @@ async function bootstrap() {
   app.use(urlencoded({ extended: true, limit: '10mb' }));
 
   app.enableCors({
-    origin: true, // Allow all origins temporarily for troubleshooting
+    origin: '*', // Absolute allowance for debugging
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
     credentials: true,
-    allowedHeaders: 'Content-Type,Accept,Authorization,X-Requested-With',
+    allowedHeaders: '*',
     preflightContinue: false,
     optionsSuccessStatus: 204,
   });
