@@ -16,6 +16,17 @@ exports.CategoriesController = void 0;
 const common_1 = require("@nestjs/common");
 const categories_service_1 = require("./categories.service");
 const admin_guard_1 = require("../auth/admin.guard");
+const MAX_DATA_URI_LENGTH = 200_000;
+const assertImageOk = (value, fieldName) => {
+    if (typeof value !== 'string')
+        return;
+    const v = value.trim();
+    if (!v.startsWith('data:image'))
+        return;
+    if (v.length > MAX_DATA_URI_LENGTH) {
+        throw new common_1.BadRequestException(`${fieldName}: image trop lourde. Utilisez une URL ou une image plus légère.`);
+    }
+};
 let CategoriesController = class CategoriesController {
     constructor(categoriesService) {
         this.categoriesService = categoriesService;
@@ -24,9 +35,17 @@ let CategoriesController = class CategoriesController {
         return this.categoriesService.findAll();
     }
     async create(category) {
+        assertImageOk(category?.image, 'image');
+        const subs = category?.subCategories;
+        if (Array.isArray(subs))
+            subs.forEach((s) => assertImageOk(s?.image, 'subCategories.image'));
         return this.categoriesService.create(category);
     }
     async update(id, category) {
+        assertImageOk(category?.image, 'image');
+        const subs = category?.subCategories;
+        if (Array.isArray(subs))
+            subs.forEach((s) => assertImageOk(s?.image, 'subCategories.image'));
         return this.categoriesService.update(+id, category);
     }
     async remove(id) {

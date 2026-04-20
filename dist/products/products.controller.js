@@ -16,6 +16,17 @@ exports.ProductsController = void 0;
 const common_1 = require("@nestjs/common");
 const products_service_1 = require("./products.service");
 const admin_guard_1 = require("../auth/admin.guard");
+const MAX_DATA_URI_LENGTH = 200_000;
+const assertImageOk = (value, fieldName) => {
+    if (typeof value !== 'string')
+        return;
+    const v = value.trim();
+    if (!v.startsWith('data:image'))
+        return;
+    if (v.length > MAX_DATA_URI_LENGTH) {
+        throw new common_1.BadRequestException(`${fieldName}: image trop lourde. Utilisez une URL ou une image plus légère.`);
+    }
+};
 let ProductsController = class ProductsController {
     constructor(productsService) {
         this.productsService = productsService;
@@ -27,9 +38,11 @@ let ProductsController = class ProductsController {
         return this.productsService.findOne(+id);
     }
     async create(product) {
+        assertImageOk(product?.image, 'image');
         return this.productsService.create(product);
     }
     async update(id, product) {
+        assertImageOk(product?.image, 'image');
         return this.productsService.update(+id, product);
     }
     async remove(id) {

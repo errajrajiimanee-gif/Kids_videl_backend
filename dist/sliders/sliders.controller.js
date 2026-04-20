@@ -16,6 +16,17 @@ exports.SlidersController = void 0;
 const common_1 = require("@nestjs/common");
 const sliders_service_1 = require("./sliders.service");
 const admin_guard_1 = require("../auth/admin.guard");
+const MAX_DATA_URI_LENGTH = 200_000;
+const assertImageOk = (value, fieldName) => {
+    if (typeof value !== 'string')
+        return;
+    const v = value.trim();
+    if (!v.startsWith('data:image'))
+        return;
+    if (v.length > MAX_DATA_URI_LENGTH) {
+        throw new common_1.BadRequestException(`${fieldName}: image trop lourde. Utilisez une URL ou une image plus légère.`);
+    }
+};
 let SlidersController = class SlidersController {
     constructor(slidersService) {
         this.slidersService = slidersService;
@@ -24,9 +35,11 @@ let SlidersController = class SlidersController {
         return this.slidersService.findAll(category);
     }
     async create(slide) {
+        assertImageOk(slide?.image, 'image');
         return this.slidersService.create(slide);
     }
     async update(id, slide) {
+        assertImageOk(slide?.image, 'image');
         return this.slidersService.update(+id, slide);
     }
     async remove(id) {
