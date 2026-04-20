@@ -8,6 +8,18 @@ import { ProductsService } from '../products/products.service';
 import { LoyaltyService } from '../loyalty/loyalty.service';
 import { UsersService } from '../users/users.service';
 
+const normalizeMoroccanPhone = (value: string): string | null => {
+  const raw = String(value || '').trim().replace(/[^\d+]/g, '');
+  let normalized = raw;
+
+  if (normalized.startsWith('00')) normalized = `+${normalized.slice(2)}`;
+  if (/^0\d{9}$/.test(normalized)) normalized = `+212${normalized.slice(1)}`;
+  if (/^212\d{9}$/.test(normalized)) normalized = `+${normalized}`;
+
+  if (!/^\+212[5-7]\d{8}$/.test(normalized)) return null;
+  return normalized;
+};
+
 type CreateOrderBody = {
   customer?: Order['customer'];
   items: Order['items'];
@@ -91,6 +103,14 @@ export class OrdersController {
     if (missing.length > 0) {
       throw new BadRequestException(`Champs obligatoires manquants: ${missing.join(', ')}`);
     }
+    const normalizedPhone = normalizeMoroccanPhone(String(customer.phone || ''));
+    if (!normalizedPhone) {
+      throw new BadRequestException('Téléphone invalide. Utilisez un numéro marocain en format +212XXXXXXXXX.');
+    }
+    const normalizedCustomer = {
+      ...customer,
+      phone: normalizedPhone,
+    };
 
     const paymentMethod = body.paymentMethod || 'cod';
     if (paymentMethod !== 'cod' && paymentMethod !== 'card') {
@@ -120,8 +140,8 @@ export class OrdersController {
 
     // Loyalty points logic: 1 point per 10 MAD of subtotal
     const earnedPoints = Math.floor(subtotal / 10);
-    if (earnedPoints > 0 && customer.email && customer.phone) {
-      await this.loyaltyService.addPointsByEmailOrPhone(customer.email, customer.phone, earnedPoints);
+    if (earnedPoints > 0 && normalizedCustomer.email && normalizedCustomer.phone) {
+      await this.loyaltyService.addPointsByEmailOrPhone(normalizedCustomer.email, normalizedCustomer.phone, earnedPoints);
     }
 
     const created = await this.ordersService.create({
@@ -133,7 +153,7 @@ export class OrdersController {
       shippingCost,
       subtotal,
       total,
-      customer,
+      customer: normalizedCustomer,
       items,
     });
 

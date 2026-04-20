@@ -21,6 +21,19 @@ const orders_service_1 = require("./orders.service");
 const products_service_1 = require("../products/products.service");
 const loyalty_service_1 = require("../loyalty/loyalty.service");
 const users_service_1 = require("../users/users.service");
+const normalizeMoroccanPhone = (value) => {
+    const raw = String(value || '').trim().replace(/[^\d+]/g, '');
+    let normalized = raw;
+    if (normalized.startsWith('00'))
+        normalized = `+${normalized.slice(2)}`;
+    if (/^0\d{9}$/.test(normalized))
+        normalized = `+212${normalized.slice(1)}`;
+    if (/^212\d{9}$/.test(normalized))
+        normalized = `+${normalized}`;
+    if (!/^\+212[5-7]\d{8}$/.test(normalized))
+        return null;
+    return normalized;
+};
 let OrdersController = class OrdersController {
     constructor(ordersService, productsService, loyaltyService, usersService) {
         this.ordersService = ordersService;
@@ -70,6 +83,14 @@ let OrdersController = class OrdersController {
         if (missing.length > 0) {
             throw new common_1.BadRequestException(`Champs obligatoires manquants: ${missing.join(', ')}`);
         }
+        const normalizedPhone = normalizeMoroccanPhone(String(customer.phone || ''));
+        if (!normalizedPhone) {
+            throw new common_1.BadRequestException('Téléphone invalide. Utilisez un numéro marocain en format +212XXXXXXXXX.');
+        }
+        const normalizedCustomer = {
+            ...customer,
+            phone: normalizedPhone,
+        };
         const paymentMethod = body.paymentMethod || 'cod';
         if (paymentMethod !== 'cod' && paymentMethod !== 'card') {
             throw new common_1.BadRequestException('Méthode de paiement invalide');
@@ -94,8 +115,8 @@ let OrdersController = class OrdersController {
         const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
         const total = subtotal + shippingCost;
         const earnedPoints = Math.floor(subtotal / 10);
-        if (earnedPoints > 0 && customer.email && customer.phone) {
-            await this.loyaltyService.addPointsByEmailOrPhone(customer.email, customer.phone, earnedPoints);
+        if (earnedPoints > 0 && normalizedCustomer.email && normalizedCustomer.phone) {
+            await this.loyaltyService.addPointsByEmailOrPhone(normalizedCustomer.email, normalizedCustomer.phone, earnedPoints);
         }
         const created = await this.ordersService.create({
             createdAt: new Date().toISOString(),
@@ -106,7 +127,7 @@ let OrdersController = class OrdersController {
             shippingCost,
             subtotal,
             total,
-            customer,
+            customer: normalizedCustomer,
             items,
         });
         let notify;
