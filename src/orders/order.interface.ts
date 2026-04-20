@@ -4,7 +4,6 @@ export interface OrderItem {
   price: number;
   quantity: number;
 }
-//test
 export interface OrderCustomer {
   email?: string;
   firstName?: string;
