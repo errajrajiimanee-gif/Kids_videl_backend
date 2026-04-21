@@ -7,6 +7,7 @@ export declare class JsonStore<T extends IdRecord> {
     private cache;
     private initialized;
     constructor(fileName: string, seed: T[]);
+    private get dataDir();
     private get filePath();
     private ensureDir;
     private atomicWrite;

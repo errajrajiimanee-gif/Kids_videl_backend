@@ -18,8 +18,14 @@ class JsonStore {
         this.cache = null;
         this.initialized = false;
     }
+    get dataDir() {
+        const raw = (process.env.DATA_DIR || '').trim();
+        if (!raw)
+            return path.join(process.cwd(), 'data');
+        return path.isAbsolute(raw) ? raw : path.join(process.cwd(), raw);
+    }
     get filePath() {
-        return path.join(process.cwd(), 'data', this.fileName);
+        return path.join(this.dataDir, this.fileName);
     }
     async ensureDir() {
         await fs_1.promises.mkdir(path.dirname(this.filePath), { recursive: true });
